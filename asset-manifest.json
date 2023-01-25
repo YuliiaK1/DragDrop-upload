@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/dragdrop-upload/static/css/main.ee24f595.css",
+    "main.js": "/dragdrop-upload/static/js/main.7eaf4261.js",
+    "static/js/787.1b5c45b1.chunk.js": "/dragdrop-upload/static/js/787.1b5c45b1.chunk.js",
+    "static/media/type-default.png": "/dragdrop-upload/static/media/type-default.12cb9b9f01b1805186b5.png",
+    "static/media/type-mp4.png": "/dragdrop-upload/static/media/type-mp4.f28b19d4413081cb0a44.png",
+    "static/media/type-gif.png": "/dragdrop-upload/static/media/type-gif.ea46fa0554a10a812b4a.png",
+    "static/media/type-jpeg.png": "/dragdrop-upload/static/media/type-jpeg.141dd231059bdaad63db.png",
+    "static/media/type-psd.png": "/dragdrop-upload/static/media/type-psd.dd56639c86e14f1b581b.png",
+    "static/media/type-png.png": "/dragdrop-upload/static/media/type-png.4a9b09322c32297d7ac7.png",
+    "static/media/type-pdf.png": "/dragdrop-upload/static/media/type-pdf.cd0853493c9346f0516e.png",
+    "static/media/upload-icon.svg": "/dragdrop-upload/static/media/upload-icon.699fc7c4af43f13d991925076ce0312f.svg",
+    "static/media/delete-icon.svg": "/dragdrop-upload/static/media/delete-icon.6a94a16ea6c871a4b7b403d139bb307b.svg",
+    "index.html": "/dragdrop-upload/index.html",
+    "main.ee24f595.css.map": "/dragdrop-upload/static/css/main.ee24f595.css.map",
+    "main.7eaf4261.js.map": "/dragdrop-upload/static/js/main.7eaf4261.js.map",
+    "787.1b5c45b1.chunk.js.map": "/dragdrop-upload/static/js/787.1b5c45b1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ee24f595.css",
+    "static/js/main.7eaf4261.js"
+  ]
+}

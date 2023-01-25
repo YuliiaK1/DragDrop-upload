@@ -2,7 +2,7 @@
   "name": "my-drag-drop",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yuliiak1.github.io/DragDrop-upload",
+  "homepage": "https://yuliiak1.github.io/DragDrop-upload/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

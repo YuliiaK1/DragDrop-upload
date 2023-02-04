@@ -1,15 +1,14 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import image from "../assets/upload-icon.svg"
+import clip from "../assets/clip-icon.png"
 import deleteIcon from "../assets/delete-icon.svg"
+import { v4 as uuidv4 } from 'uuid';
 import {TypesConfig} from "./FileTypesConfig"
 import './DragDropFiles.css';
-import storage from "./firebaseConfig" 
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import {uploadFiles} from "./UploadFiles"
 
-function DragDropFiles() {
+function DragDropFiles({fileList, setFileList}) {
     const focusUploadRef = useRef(null);
-    const [fileList, setFileList] = useState([]); // state to store uploaded file
-    const [percent, setPercent] = useState(0); // state for progress of upload
 
     function onDragStart (e) {
         e.preventDefault() //override the default behavior
@@ -36,7 +35,16 @@ function DragDropFiles() {
         const permittedType = ["png", "jpeg", "pdf", "psd", "gif", "mp4"]
         for (let i = 0; i<files.length && uploadList.length<5; i++){ //add file limit check
                 if(permittedType.includes(files[i].type.split('/')[1])) { //file type check
-                    uploadList.push(files[i]);
+                    uploadList.push({
+                        name: files[i].name,
+                        type: files[i].type,
+                        size: files[i].size,
+                        id: uuidv4(),
+                        file: files[i],
+                        loaded: false,
+                        percent: 0,
+                        url: null
+                    });
                     setFileList(uploadList);
                 }
         }
@@ -48,32 +56,6 @@ function DragDropFiles() {
         setFileList(uploadList);
     }
 
-    function uploadFiles() { //upload on Firebase
-        const promises = []
-        fileList.forEach((file) => {
-        const storageRef = ref(storage, `/files/${file.name}`)
-        const uploadTask = uploadBytesResumable(storageRef, file);
-        promises.push(uploadTask)
-        uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-            const percent = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-            
-            // update progress
-            setPercent(percent);
-            },
-            (err) => console.log(err),
-            () => {
-            // download url
-            getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-            console.log(url);
-            });
-            }
-            ); 
-        })
-    }
 
     return (
     <div 
@@ -89,15 +71,18 @@ function DragDropFiles() {
         </div>
         {
             fileList? <div className="selected-files">
-            {fileList.map((file, id) => 
-            <div className="selected-files__items" key={id}>
+            {fileList.map((file, index) => 
+            <div className="selected-files__items" key={file.id}>
                 <div className="items-left">
                 <img src={TypesConfig[file.type.split('/')[1]] || TypesConfig['default']} alt="Type of file icon" />
                 <p className="items-text_name">{file.name.split('.')[0]}</p>
                 </div>
                 
                 <div className="items-right">
-                <p className="items-text_persent">{percent}% done</p>
+                <div className="link-block">
+                    <a href={file.url} target="_blank" rel="noreferrer"><img src={clip} alt="Link" style={{opacity: file.url===undefined? "0.5" : "1"}}/></a>
+                </div>
+                <p className={file.percent.length>0? "items-text_persent-active":"items-text_persent"} >{file.percent}% done</p>
                 <div className="delete-files" onClick={() => fileRemove(file)}>
                     <img src={deleteIcon} alt="Delete file" />
                 </div>
@@ -107,7 +92,7 @@ function DragDropFiles() {
             )}
      </div> : null
         }
-        <input onClick={uploadFiles} className={fileList.length>0? "input-submit active":"input-submit"} type="submit" value={"UPLOAD FILES TO FIREBASE"}/> 
+        <input onClick={()=>uploadFiles(fileList, setFileList)} className={fileList.length>0? "input-submit active":"input-submit"} type="submit" value={"UPLOAD FILES TO FIREBASE"}/> 
     </div>
     );
 }

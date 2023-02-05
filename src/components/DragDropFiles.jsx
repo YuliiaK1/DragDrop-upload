@@ -56,7 +56,6 @@ function DragDropFiles({fileList, setFileList}) {
         setFileList(uploadList);
     }
 
-
     return (
     <div 
     onDragOver={onDragStart}
@@ -66,12 +65,12 @@ function DragDropFiles({fileList, setFileList}) {
             <img src={image} alt="Upload icon" />
             <h2>Drag&drop files or Browse</h2>
             <p className="upload-block__text-limit">Supported formates: JPEG, PNG, GIF, MP4, PDF, PSD</p>
-            {fileList.length===5? <p className="upload-block__text-limit upload-block__text-limit_active">Selected limited amount of files!</p>:<p className='upload-block__text-limit'>You can upload up to 5 files</p>}
+            {fileList.length===5? <p className="upload-block__text-limit_active">Selected limited amount of files!</p>:<p className='upload-block__text-limit'>You can upload up to 5 files</p>}
             <input type="file" accept="image/png, image/jpeg, .gif, .mp4, .pdf, .psd" multiple onChange={getUploadfile}/>  
         </div>
         {
             fileList? <div className="selected-files">
-            {fileList.map((file, index) => 
+            {fileList.map((file) => 
             <div className="selected-files__items" key={file.id}>
                 <div className="items-left">
                 <img src={TypesConfig[file.type.split('/')[1]] || TypesConfig['default']} alt="Type of file icon" />
@@ -80,7 +79,7 @@ function DragDropFiles({fileList, setFileList}) {
                 
                 <div className="items-right">
                 <div className="link-block">
-                    <a href={file.url} target="_blank" rel="noreferrer"><img src={clip} alt="Link" style={{opacity: !file.url? "0.5" : "1"}}/></a>
+                    <a href={file.url} target="_blank" rel="noreferrer"><img src={clip} className={file.url? "clip": null} alt="Link" style={{opacity: !file.url? "0.5" : "1"}}/></a>
                 </div>
                 <p className={file.percent.length>0? "items-text_persent-active":"items-text_persent"} >{file.percent}% done</p>
                 <div className="delete-files" onClick={() => fileRemove(file)}>

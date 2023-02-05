@@ -56,6 +56,14 @@ function DragDropFiles({fileList, setFileList}) {
         setFileList(uploadList);
     }
 
+    function isLoaded() {
+        for(let i = 0; i<fileList.length; i++){
+            if (!fileList[i].loaded) {
+                return true;
+            } 
+        }
+      }    
+
     return (
     <div 
     onDragOver={onDragStart}
@@ -91,7 +99,7 @@ function DragDropFiles({fileList, setFileList}) {
             )}
      </div> : null
         }
-        <input onClick={()=>uploadFiles(fileList, setFileList)} className={fileList.length>0? "input-submit active":"input-submit"} type="submit" value={"UPLOAD FILES TO FIREBASE"}/> 
+        <input onClick={()=>uploadFiles(fileList, setFileList)} className={fileList.length>0 && fileList.some(isLoaded)? "input-submit active":"input-submit"} type="submit" value={"UPLOAD FILES TO FIREBASE"}/> 
     </div>
     );
 }

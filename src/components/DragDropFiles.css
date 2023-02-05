@@ -149,6 +149,10 @@
     margin-left: 5px;
 }
 
+.delete-files:hover {
+    transform: scale(1.2)
+}
+
 .delete-files img {
     width: 12px;
     height: 12px;

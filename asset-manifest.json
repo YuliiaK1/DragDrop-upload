@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/dragdrop-upload/static/css/main.ee24f595.css",
-    "main.js": "/dragdrop-upload/static/js/main.7eaf4261.js",
+    "main.css": "/dragdrop-upload/static/css/main.e0b24e5c.css",
+    "main.js": "/dragdrop-upload/static/js/main.b25e8ec0.js",
     "static/js/787.1b5c45b1.chunk.js": "/dragdrop-upload/static/js/787.1b5c45b1.chunk.js",
     "static/media/type-default.png": "/dragdrop-upload/static/media/type-default.12cb9b9f01b1805186b5.png",
+    "static/media/clip-icon.png": "/dragdrop-upload/static/media/clip-icon.b1567086aa2edec2bef5.png",
     "static/media/type-mp4.png": "/dragdrop-upload/static/media/type-mp4.f28b19d4413081cb0a44.png",
     "static/media/type-gif.png": "/dragdrop-upload/static/media/type-gif.ea46fa0554a10a812b4a.png",
     "static/media/type-jpeg.png": "/dragdrop-upload/static/media/type-jpeg.141dd231059bdaad63db.png",
@@ -13,12 +14,12 @@
     "static/media/upload-icon.svg": "/dragdrop-upload/static/media/upload-icon.699fc7c4af43f13d991925076ce0312f.svg",
     "static/media/delete-icon.svg": "/dragdrop-upload/static/media/delete-icon.6a94a16ea6c871a4b7b403d139bb307b.svg",
     "index.html": "/dragdrop-upload/index.html",
-    "main.ee24f595.css.map": "/dragdrop-upload/static/css/main.ee24f595.css.map",
-    "main.7eaf4261.js.map": "/dragdrop-upload/static/js/main.7eaf4261.js.map",
+    "main.e0b24e5c.css.map": "/dragdrop-upload/static/css/main.e0b24e5c.css.map",
+    "main.b25e8ec0.js.map": "/dragdrop-upload/static/js/main.b25e8ec0.js.map",
     "787.1b5c45b1.chunk.js.map": "/dragdrop-upload/static/js/787.1b5c45b1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ee24f595.css",
-    "static/js/main.7eaf4261.js"
+    "static/css/main.e0b24e5c.css",
+    "static/js/main.b25e8ec0.js"
   ]
 }

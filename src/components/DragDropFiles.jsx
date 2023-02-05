@@ -80,7 +80,7 @@ function DragDropFiles({fileList, setFileList}) {
                 
                 <div className="items-right">
                 <div className="link-block">
-                    <a href={file.url} target="_blank" rel="noreferrer"><img src={clip} alt="Link" style={{opacity: file.url===undefined? "0.5" : "1"}}/></a>
+                    <a href={file.url} target="_blank" rel="noreferrer"><img src={clip} alt="Link" style={{opacity: !file.url? "0.5" : "1"}}/></a>
                 </div>
                 <p className={file.percent.length>0? "items-text_persent-active":"items-text_persent"} >{file.percent}% done</p>
                 <div className="delete-files" onClick={() => fileRemove(file)}>
